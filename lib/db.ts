@@ -64,6 +64,34 @@ const books: Book[] = [
   },
 ];
 
+export interface Comment {
+  id: string;
+  bookId: string;
+  author: string;
+  text: string;
+  createdAt: string;
+}
+
+const comments: Comment[] = [
+  { id: "c1", bookId: "1", author: "Jane", text: "Could not put it down.", createdAt: "2024-01-15T10:00:00Z" },
+  { id: "c2", bookId: "1", author: "Alex", text: "Beautiful and thought-provoking.", createdAt: "2024-01-20T14:30:00Z" },
+  { id: "c3", bookId: "2", author: "Sam", text: "Life-changing framework.", createdAt: "2024-02-01T09:00:00Z" },
+  { id: "c4", bookId: "3", author: "Jordan", text: "Best sci-fi in years.", createdAt: "2024-02-10T16:00:00Z" },
+];
+
+/**
+ * Fetches comments for a given book
+ * @param bookId - The book's id
+ * @returns Promise<Comment[]> - Comments for that book after 300ms delay
+ */
+export async function getCommentsByBookId(bookId: string): Promise<Comment[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(comments.filter((c) => c.bookId === bookId));
+    }, 300);
+  });
+}
+
 /**
  * Simulates fetching books from a database with network latency
  * @returns Promise<Book[]> - Array of book objects after 500ms delay
