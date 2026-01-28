@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Beagle - Technical Assessment
+
+A Next.js technical interview task focused on building a responsive, polished book listing UI using Tailwind CSS.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Your Tasks
 
-## Learn More
+### Task 1: Fetch and Display Book Data
 
-To learn more about Next.js, take a look at the following resources:
+The mock database is already set up in `lib/db.ts`. The data is being fetched in `app/page.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Review the `Book` interface and `getBooks()` function
+- The books are already available in the `Home` component
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Task 2: Build the Book List UI
 
-## Deploy on Vercel
+Create a "Goodreads-style" book listing interface in `app/page.tsx`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Requirements:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Display books in a **responsive grid layout**
+  - 1 column on mobile
+  - 3 columns on desktop
+- [ ] Each book card should display:
+  - Cover image
+  - Title
+  - Author
+  - Rating (consider using stars or a badge)
+  - Description (truncated)
+- [ ] Use `next/image` for optimized image loading
+- [ ] Add **hover states** on cards for interactivity
+- [ ] Ensure **consistent spacing** throughout
+
+**Evaluation Criteria:**
+
+- Clean, semantic HTML structure
+- Effective use of Tailwind CSS utilities
+- Responsive design implementation
+- Proper usage of `next/image` with external images
+- Attention to UI/UX details (hover states, transitions, typography)
+
+### Task 3: Bonus Challenge (Optional)
+
+Implement one or more of the following features:
+
+- [ ] **Search**: Filter books by title or author
+- [ ] **Filter by Rating**: Show only books above a certain rating
+- [ ] **Sort**: Allow sorting by title, author, or rating
+- [ ] **Loading State**: Add a skeleton loader while books are loading
+
+---
+
+## Project Structure
+
+```
+├── app/
+│   ├── globals.css      # Global styles & Tailwind imports
+│   ├── layout.tsx       # Root layout with metadata
+│   └── page.tsx         # Main page (YOUR WORK GOES HERE)
+├── lib/
+│   └── db.ts            # Mock database with book data
+├── public/              # Static assets
+└── tailwind.config.ts   # Tailwind configuration
+```
+
+## Technical Notes
+
+- **Next.js Version**: 16.x (App Router)
+- **Styling**: Tailwind CSS v4
+- **TypeScript**: Strict mode enabled
+
+### Using External Images with next/image
+
+The book cover images are hosted externally. The `next.config.ts` has been configured to allow these domains. If you encounter image loading issues, check the configuration.
+
