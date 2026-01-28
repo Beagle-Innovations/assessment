@@ -1,7 +1,5 @@
 # Beagle - Technical Assessment
 
-A Next.js technical interview task focused on building a responsive, polished book listing UI using Tailwind CSS.
-
 ## Getting Started
 
 ```bash
@@ -15,71 +13,29 @@ Open [http://localhost:3000](http://localhost:3000) to see the application.
 
 ## Your Tasks
 
-### Task 1: Fetch and Display Book Data
+### Task 1: Connect to the Data Layer
 
-The mock database is already set up in `lib/db.ts`. The data is being fetched in `app/page.tsx`.
+The mock database is in `lib/db.ts`:
 
 - Review the `Book` interface and `getBooks()` function
-- The books are already available in the `Home` component
+- Review the `Comment` interface and `getCommentsByBookId(bookId)` function
+- Render the books
 
-### Task 2: Build the Book List UI
+### Task 2: Fetch Comments Without Blocking the Initial Render
 
-Create a "Goodreads-style" book listing interface in `app/page.tsx`:
+**Your goal:** Fetch and display comments in a way that follows Server Components best practices and keeps comments **non–render-blocking** (the book list should render as soon as books are ready; comments can load in parallel or stream in afterward).
 
-**Requirements:**
+### Task 3: Bonus (Optional)
 
-- [ ] Display books in a **responsive grid layout**
-  - 1 column on mobile
-  - 3 columns on desktop
-- [ ] Each book card should display:
-  - Cover image
-  - Title
-  - Author
-  - Rating (consider using stars or a badge)
-  - Description (truncated)
-- [ ] Use `next/image` for optimized image loading
-- [ ] Add **hover states** on cards for interactivity
-- [ ] Ensure **consistent spacing** throughout
-
-**Evaluation Criteria:**
-
-- Clean, semantic HTML structure
-- Effective use of Tailwind CSS utilities
-- Responsive design implementation
-- Proper usage of `next/image` with external images
-- Attention to UI/UX details (hover states, transitions, typography)
-
-### Task 3: Bonus Challenge (Optional)
-
-Implement one or more of the following features:
-
-- [ ] **Search**: Filter books by title or author
-- [ ] **Filter by Rating**: Show only books above a certain rating
-- [ ] **Sort**: Allow sorting by title, author, or rating
-- [ ] **Loading State**: Add a skeleton loader while books are loading
+- [ ] **Loading states**: Use Suspense boundaries and fallbacks so loading comment data (or books) shows a clear loading state instead of a blank area
+- [ ] **Error handling**: Consider what happens when `getCommentsByBookId` or `getBooks` fails and how to surface that in the UI
 
 ---
 
-## Project Structure
-
-```
-├── app/
-│   ├── globals.css      # Global styles & Tailwind imports
-│   ├── layout.tsx       # Root layout with metadata
-│   └── page.tsx         # Main page (YOUR WORK GOES HERE)
-├── lib/
-│   └── db.ts            # Mock database with book data
-├── public/              # Static assets
-└── tailwind.config.ts   # Tailwind configuration
-```
-
 ## Technical Notes
 
-- **Next.js Version**: 16.x (App Router)
-- **Styling**: Tailwind CSS v4
+- **Next.js**: 16.x (App Router)
+- **Styling**: Tailwind
 - **TypeScript**: Strict mode enabled
-
-### Using External Images with next/image
-
-The book cover images are hosted externally. The `next.config.ts` has been configured to allow these domains. If you encounter image loading issues, check the configuration.
+- Book cover images are external; `next.config.ts` allows the required domains if you use `next/image`.
 

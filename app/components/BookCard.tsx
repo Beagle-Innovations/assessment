@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Book } from "@/lib/db";
+import type { Book } from "@/types";
 
 interface BookCardProps {
 	book: Book;

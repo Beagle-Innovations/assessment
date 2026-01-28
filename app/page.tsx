@@ -1,7 +1,8 @@
+import type { Book } from "@/types";
 import { BookCard } from "./components/BookCard";
 
 export default async function Home() {
-	const books = [];
+	const books: Book[] = [];
 
 	return (
 		<div className="min-h-screen bg-gray-50">
