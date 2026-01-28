@@ -23,7 +23,7 @@ The mock database is in `lib/db.ts`:
 
 ### Task 2: Fetch Comments Without Blocking the Initial Render
 
-**Your goal:** Fetch and display comments in a way that follows Server Components best practices and keeps comments **non–render-blocking** (the book list should render as soon as books are ready; comments can load in parallel or stream in afterward).
+**Your goal:** Fetch and display comments in a way that follows Server Components best practices and keeps comments **non–render-blocking**.
 
 ### Task 3: Bonus (Optional)
 
