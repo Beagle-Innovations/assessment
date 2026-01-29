@@ -19,16 +19,15 @@ The mock database is in `lib/db.ts`:
 
 - Review the `Book` interface and `getBooks()` function
 - Review the `Comment` interface and `getCommentsByBookId(bookId)` function
-- Render the books
+- *Render the books*
 
 ### Task 2: Fetch Comments Without Blocking the Initial Render
 
-**Your goal:** Fetch and display comments in a way that follows Server Components best practices and keeps comments **non–render-blocking**.
+**Your goal:** Fetch and display comments in a way that follows Next + React best practices and keeps comments **non–render-blocking**.
 
 ### Task 3: Bonus (Optional)
 
-- [ ] **Loading states**: Use Suspense boundaries and fallbacks so loading comment data (or books) shows a clear loading state instead of a blank area
-- [ ] **Error handling**: Consider what happens when `getCommentsByBookId` or `getBooks` fails and how to surface that in the UI
+- [ ] **Sort by rating**: Add a way to sort the book list by rating (e.g. a button or toggle). Keep the page as a server component; use a client component only where needed for the interactive sort.
 
 ---
 
